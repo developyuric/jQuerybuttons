@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script>
+        //1st line----------------------------------
+        $(document).ready(function(){
+            $("#btn1-1").click(function(){
+                $("#box1-1").addClass("right");
+            });
+            $("#btn1-2").click(function(){
+                $("#box1-1").removeClass("right");
+            });
+            $("#btn1-3").click(function(){
+                $("#box1-1").toggleClass("right");
+            });
+            $("#btn1-4").click(function(){
+                $("#box1-1").css({
+                    "left":"200px",
+                    "font-size":"70px",
+                    "background":"skyblue"
+                });
+            });
+            $("#btn1-5").click(function(){
+                $("#box1-1").addClass("animate__heartBeat");
+            });
+        });
+        //2nd line---------------------------------
+        $(document).ready(function(){
+            $("#btn2-1").click(function(){
+                $("p").show();
+            });
+            $("#btn2-2").click(function(){
+                $("p").hide();
+            });
+            $("#btn2-3").click(function(){
+                $("p").toggle();
+            });
+            $("#btn2-4").click(function(){
+                $("p").fadeIn();
+            });
+            $("#btn2-5").click(function(){
+                $("p").fadeOut();
+            });
+            $("#btn2-6").click(function(){
+                $("p").fadeToggle();
+            });
+            $("#btn2-7").click(function(){
+                $("p").fadeTo("slow",0.3);
+            });
+            $("#btn2-9").click(function(){
+                $("p").slideUp();
+            });
+            $("#btn2-10").click(function(){
+                $("p").slideDown();
+            });
+            $("#btn2-8").click(function(){
+                $("p").slideToggle();
+            });
+        });
+        // 3rd line------------------------------------------
+        $(function(){
+                $(".btn3").click(function(){
+                    $("p").animate({left:"100px"},5000)
+                    .animate({top:"100px"},5000)
+                    .animate({left:"10px"},5000)
+                    .animate({top:"20px"},5000);
+                });
+                $("#btn3-1").click(function(){
+                    $("p").stop();              //same as stop(false,false) 
+                });
+                $("#btn3-2").click(function(){
+                    $("p").stop(true,true);     //All animation Stop. Stopped animation go to last frame
+                });
+                $("#btn3-3").click(function(){
+                    $("p").stop(true,false);    // Go to the last frame
+                });                             
+                $("#btn3-4").click(function(){
+                    $("p").stop(false,true);    // Stops only current animation // go to last frame // other animations all work
+                });
+                $("#btn3-5").click(function(){
+                    $("p").stop(false,false);   // start from current position // stops only current animation
+                });                             // Basic // same as first stop 
+            });
+
+
+    </script>
+    <style>
+        body{
+            margin-left: 70px;
+            margin-top: 70px;
+        }
+        button{
+            padding: 5px;
+            background-color: rgb(186, 254, 231);
+            border-radius: 5px;
+            border: 1px solid rgb(32, 138, 46);
+        }
+        button:hover{
+            background-color: rgb(141, 178, 68);
+        }
+
+        #box1-1{
+            border-radius: 50%;
+            border: 1px solid ;
+            width: 100px !important;
+            height: 100px !important;
+            position: absolute;
+            transition:0.5s; 
+            padding:40px;
+            top: 120px;
+            font-size: 30px;
+            background-color: rgb(255, 238, 139);
+        }
+        .right{
+            left: 100px !important;
+            font-size: 50px !important;
+            background-color: rgb(236, 123, 67) !important;
+        }
+        .balloon{
+            margin-top: 0px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 1st line -------------------------------->
+    <button id="btn1-1">Add-right</button>
+    <button id="btn1-2">Remove-right</button>
+    <button id="btn1-3">Toggle-right</button>
+    <button id="btn1-4">Combination</button>
+    <button id="btn1-5">HeartBeat</button>
+    <div id="box1-1" class="animate__animated">🍳Egg</div>
+    <!-- 2nd line ------------------------------->
+    <div style="margin-top: 270px;">
+        <button id="btn2-1">show</button>
+        <button id="btn2-2">hide</button>
+        <button id="btn2-3">toggle</button>
+        <button id="btn2-4">fadeIn</button>
+        <button id="btn2-5">fadeOut</button>
+        <button id="btn2-6">fadeToggle</button>
+        <button id="btn2-7">fadeTo</button>
+        <button id="btn2-8">slideUp</button>
+        <button id="btn2-9">slideDown</button>
+        <button id="btn2-10">slideToggle</button>
+        <p style="background-color: rgb(255, 182, 182); padding: 10px;width: 300px;text-align: center;">jQuery</p>
+    </div>
+
+    <!-- 3rd line ------------------------------->
+    <div style="margin-top: 50px;">
+        <button class="btn3">start</button>
+        <button class="btn3" id="btn3-1">stop()</button>
+        <button class="btn3" id="btn3-2">stop(true,true)</button>
+        <button class="btn3" id="btn3-3">stop(true,false)</button>
+        <button class="btn3" id="btn3-4">stop(false,true)</button>
+        <button class="btn3" id="btn3-5">stop(false,false)</button>
+        <p class="balloon" style="font-size: 100px;position: absolute; color: yellow;">🎈</p>
+    </div>
+
+</body>
+</html>
